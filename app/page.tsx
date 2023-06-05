@@ -318,6 +318,8 @@ const Home = () => (
           </div>
         </div>
       </div>
+
+      <div className="w-full h-20 bg-zinc-800" />
     </div>
   </main>
 );
