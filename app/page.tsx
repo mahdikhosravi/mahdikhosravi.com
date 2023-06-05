@@ -193,8 +193,8 @@ const educations: EducationType[] = [
 
 const Home = () => (
   <main className="bg-zinc-800">
-    <div className="h-96">
-      <div className="flex flex-col justify-center text-7xl tracking-wider font-extrabold text-white leading-loose h-full px-10">
+    <div className="h-44 md:h-96">
+      <div className="flex flex-col justify-center w-fit m-auto md:m-0 text-5xl md:text-7xl tracking-wider font-extrabold text-white md:leading-loose h-full px-10">
         <div>Hi!</div>
         <div>
           I&apos;m <span className="underline-offset-8 decoration-yellow-400 underline">Khosi</span>
@@ -204,14 +204,14 @@ const Home = () => (
     <div className="flex flex-row md:hidden justify-center md:-mt-20  text-yellow-400">
       {socialNetworks.map((sn) => (
         <Link href={sn.url} key={sn.url} className="hover:text-yellow-600 m-4" target="_blank">
-          <sn.icon className="h-10 w-10" />
+          <sn.icon className="h-8 w-8" />
         </Link>
       ))}
     </div>
 
     <div className="h-fit bg-gray-200 text-zinc-900">
-      <div className="relative w-full min-h-screen p-10 space-y-20">
-        <div className="relative md:absolute md:w-1/3 w-96 m-auto md:max-w-md h-80 md:h-1/3 md:max-h-80 bg-white md:-top-40 md:right-20 rounded-lg">
+      <div className="relative w-full min-h-screen p-4 md:p-10 space-y-20">
+        <div className="relative max-w-full md:absolute md:w-1/3 w-96 m-auto md:max-w-md h-80 md:h-1/3 md:max-h-80 bg-white md:-top-40 md:right-20 rounded-lg">
           <div className="hidden md:flex flex-row justify-between md:-mt-20  text-yellow-400">
             {socialNetworks.map((sn) => (
               <Link href={sn.url} key={sn.url} className="hover:text-yellow-600" target="_blank">
