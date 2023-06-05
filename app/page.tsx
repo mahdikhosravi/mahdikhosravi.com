@@ -1,113 +1,324 @@
-import Image from 'next/image'
+import { ComputerDesktopIcon, PresentationChartLineIcon, UsersIcon } from '@heroicons/react/24/solid';
+import {
+  IconType,
+  SiAndroid,
+  SiAndroidstudio,
+  SiCplusplus,
+  SiDjango,
+  SiDocker,
+  SiGit,
+  SiGithub,
+  SiGitlab,
+  SiGmail,
+  SiInstagram,
+  SiIntellijidea,
+  SiJavascript,
+  SiLinkedin,
+  SiLinux,
+  SiNextdotjs,
+  SiPostgresql,
+  SiPrisma,
+  SiPycharm,
+  SiPython,
+  SiReact,
+  SiReacthookform,
+  SiTailwindcss,
+  SiTwitter,
+  SiTypescript,
+  SiVisualstudiocode,
+} from '@icons-pack/react-simple-icons';
+import Image from 'next/image';
+import Link from 'next/link';
+import khosi from '../public/img/khosi.png';
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+type UniversalIconType = IconType | React.ComponentType<React.SVGProps<SVGSVGElement>>;
+
+type TopSkillType = {
+  icon: UniversalIconType;
+  title: string;
+};
+
+type SocialNetworkType = {
+  icon: UniversalIconType;
+  url: string;
+};
+
+type SkillRow = {
+  array: UniversalIconType[];
+  classes: string;
+};
+
+type ExperienceType = {
+  position: string;
+  name: string;
+  start: Date;
+  end: Date | undefined;
+};
+
+type EducationType = {
+  degree: string;
+  school: string;
+  start: Date;
+  end: Date | undefined;
+};
+
+const socialNetworks: SocialNetworkType[] = [
+  {
+    icon: SiLinkedin,
+    url: 'https://www.linkedin.com/in/khosi/',
+  },
+  {
+    icon: SiInstagram,
+    url: 'https://www.instagram.com/khosikhosikhosi/',
+  },
+  {
+    icon: SiTwitter,
+    url: 'https://twitter.com/khosikhosikhosi',
+  },
+  {
+    icon: SiGithub,
+    url: 'https://github.com/mahdikhosravi',
+  },
+  {
+    icon: SiGmail,
+    url: 'mailto: mahdi0khosravi@gmail.com',
+  },
+];
+
+const topSkills: TopSkillType[] = [
+  {
+    icon: UsersIcon,
+    title: 'Management',
+  },
+  {
+    icon: ComputerDesktopIcon,
+    title: 'Software Engineering',
+  },
+  {
+    icon: PresentationChartLineIcon,
+    title: 'Business Strategy',
+  },
+];
+
+const skills: SkillRow[] = [
+  { array: [SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiPrisma], classes: 'h-16' },
+  { array: [SiPostgresql, SiVisualstudiocode, SiTailwindcss, SiGit, SiPython, SiDjango, SiPycharm], classes: 'h-12' },
+  {
+    array: [
+      SiCplusplus,
+      SiLinux,
+      SiDocker,
+      SiIntellijidea,
+      SiAndroidstudio,
+      SiAndroid,
+      SiGitlab,
+      SiGithub,
+      SiReacthookform,
+    ],
+    classes: 'h-8',
+  },
+];
+
+const experiences: ExperienceType[] = [
+  {
+    position: 'Chief Technology Officer',
+    name: 'Snapp Store',
+    start: new Date(2022, 3),
+    end: undefined,
+  },
+  {
+    position: 'Chief Technology Officer',
+    name: 'Snapp Supply',
+    start: new Date(2020, 7),
+    end: new Date(2022, 3),
+  },
+  {
+    position: 'Co-Founder and CEO',
+    name: 'Azaraxsh',
+    start: new Date(2019, 3),
+    end: new Date(2020, 6),
+  },
+  {
+    position: 'Marketing and Strategy Consultant',
+    name: 'Darskakaoo',
+    start: new Date(2019, 8),
+    end: new Date(2020, 4),
+  },
+  {
+    position: 'Results-Oriented Project Manager',
+    name: 'Pegah co.',
+    start: new Date(2017, 8),
+    end: new Date(2019, 3),
+  },
+  {
+    position: 'Co-Founder',
+    name: 'Azarakhsh',
+    start: new Date(2016, 5),
+    end: new Date(2019, 8),
+  },
+  {
+    position: 'Software Designer and Developer',
+    name: 'Rahnema Co. (Beep)',
+    start: new Date(2013, 10),
+    end: new Date(2017, 8),
+  },
+  {
+    position: 'Research Assistant',
+    name: 'Institute for Research in Fundamental Sciences (IPM)',
+    start: new Date(2016, 1),
+    end: new Date(2017, 7),
+  },
+];
+
+const educations: EducationType[] = [
+  {
+    degree: 'Master of Business Administration - MBA',
+    school: 'Sharif University of Technology',
+    start: new Date(2017, 8),
+    end: new Date(2019, 5),
+  },
+  {
+    degree: 'Bachelor of Science (BS), Computer Hardware Engineering - Minor in Economics',
+    school: 'Sharif University of Technology',
+    start: new Date(2012, 8),
+    end: new Date(2017, 5),
+  },
+  {
+    degree: 'Diploma, Mathematics and Physics',
+    school: 'Allameh Helli School',
+    start: new Date(2007, 8),
+    end: new Date(2012, 5),
+  },
+];
+
+const Home = () => (
+  <main className="bg-zinc-800">
+    <div className="h-96">
+      <div className="flex flex-col justify-center text-7xl tracking-wider font-extrabold text-white leading-loose h-full px-10">
+        <div>Hi!</div>
+        <div>
+          I&apos;m <span className="underline-offset-8 decoration-yellow-400 underline">Khosi</span>
         </div>
       </div>
+    </div>
+    <div className="flex flex-row md:hidden justify-center md:-mt-20  text-yellow-400">
+      {socialNetworks.map((sn) => (
+        <Link href={sn.url} key={sn.url} className="hover:text-yellow-600 m-4" target="_blank">
+          <sn.icon className="h-10 w-10" />
+        </Link>
+      ))}
+    </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+    <div className="h-fit bg-gray-200 text-zinc-900">
+      <div className="relative w-full min-h-screen p-10 space-y-20">
+        <div className="relative md:absolute md:w-1/3 w-96 m-auto md:max-w-md h-80 md:h-1/3 md:max-h-80 bg-white md:-top-40 md:right-20 rounded-lg">
+          <div className="hidden md:flex flex-row justify-between md:-mt-20  text-yellow-400">
+            {socialNetworks.map((sn) => (
+              <Link href={sn.url} key={sn.url} className="hover:text-yellow-600" target="_blank">
+                <sn.icon className="h-10 w-10" />
+              </Link>
+            ))}
+          </div>
+          <Image className="object-contain shadow-inner" src={khosi} fill alt="khosi" />
+        </div>
+
+        <div className="w-full grid md:grid-cols-2">
+          <div className="col-span-1 space-y-6">
+            <div className="text-bold text-4xl underline decoration-yellow-400">about me</div>
+            <p className="text-lg leading-8 max-w-3xl">
+              My name is Mahdi Khosravi, but you can call me Khosi. I am a computer software engineer with over a decade
+              of experience in the field. I have worked on a variety of projects, ranging from web applications to
+              mobile apps, and have experience with a variety of programming languages and technologies.
+            </p>
+            <p className="text-lg leading-8 max-w-3xl">
+              In my most recent two jobs, I served as Chief Technology Officer (CTO), where I was responsible for
+              leading the technology strategy and overseeing the technical teams. I have a passion for creating
+              innovative solutions that solve real-world problems, and I enjoy working collaboratively with others to
+              achieve these goals.
+            </p>
+            <p className="text-lg leading-8 max-w-3xl">
+              Throughout my career, I have been committed to staying up-to-date with the latest technologies and best
+              practices in the field. I believe that continuous learning is essential to success in software
+              engineering, and I am always seeking out new opportunities to expand my knowledge and skills.
+            </p>
+            <p className="text-lg leading-8 max-w-3xl">
+              In my free time, I enjoy reading about new technologies and programming languages, as well as spending
+              time with my family and friends. I am a dedicated and hardworking individual who is passionate about using
+              technology to make a positive impact on the world.
+            </p>
+          </div>
+        </div>
+
+        <div className="space-y-10">
+          <div className="text-bold text-4xl underline decoration-yellow-400">my skills</div>
+
+          <div className="w-full max-w-6xl m-auto grid grid-cols-3 text-center py-10">
+            {topSkills.map((ts) => (
+              <div key={ts.title} className="space-y-4">
+                <div className="bg-zinc-900 rounded-full w-fit h-fit m-auto">
+                  <ts.icon className="h-20 w-20 text-yellow-400 p-4" />
+                </div>
+                <div className="text-xl">{ts.title}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="w-full max-w-6xl m-auto space-y-10">
+            {skills.map(({ array, classes }) => (
+              <div key={array.length} className={`flex justify-evenly ${classes}`}>
+                {array.map((Skill) => (
+                  <Skill key={Skill.displayName} className="h-full w-fit" />
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-y-10">
+          <div className="space-y-10">
+            <div className="text-bold text-4xl underline decoration-yellow-400">experiences</div>
+
+            <ul className="list-disc space-y-4">
+              {experiences.map((experience) => (
+                <li key={`${experience.name} ${experience.position}`}>
+                  <div>
+                    <div className="font-bold text-lg">{experience.position}</div>
+                    <div>{experience.name}</div>
+                    <div>
+                      <span>{experience.start.toLocaleString('en-us', { month: 'short', year: 'numeric' })}</span>
+                      <span> - </span>
+                      <span>
+                        {experience.end?.toLocaleString('en-us', { month: 'short', year: 'numeric' }) || 'Present'}
+                      </span>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="space-y-10">
+            <div className="text-bold text-4xl underline decoration-yellow-400">educations</div>
+
+            <ul className="list-disc space-y-4">
+              {educations.map((education) => (
+                <li key={`${education.school} ${education.degree}`}>
+                  <div>
+                    <div className="font-bold text-lg">{education.degree}</div>
+                    <div>{education.school}</div>
+                    <div>
+                      <span>{education.start.toLocaleString('en-us', { year: 'numeric' })}</span>
+                      <span> - </span>
+                      <span>{education.end?.toLocaleString('en-us', { year: 'numeric' }) || 'Present'}</span>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
-}
+    </div>
+  </main>
+);
+export default Home;
