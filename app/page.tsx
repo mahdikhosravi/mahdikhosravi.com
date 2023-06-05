@@ -154,7 +154,7 @@ const experiences: ExperienceType[] = [
     position: 'Co-Founder',
     name: 'Azarakhsh',
     start: new Date(2016, 5),
-    end: new Date(2019, 8),
+    end: new Date(2017, 8),
   },
   {
     position: 'Software Designer and Developer',
