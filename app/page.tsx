@@ -173,7 +173,7 @@ const experiences: ExperienceType[] = [
 const educations: EducationType[] = [
   {
     degree: 'Master of Business Administration - MBA',
-    school: 'Sharif University of Technology',
+    school: 'Kharazmi University',
     start: new Date(2017, 8),
     end: new Date(2019, 5),
   },
