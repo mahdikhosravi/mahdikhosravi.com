@@ -1,6 +1,5 @@
 import { ComputerDesktopIcon, PresentationChartLineIcon, UsersIcon } from '@heroicons/react/24/solid';
 import {
-  IconType,
   SiAndroid,
   SiAndroidstudio,
   SiCplusplus,
@@ -10,6 +9,7 @@ import {
   SiGithub,
   SiGitlab,
   SiGmail,
+  SiGoodreads,
   SiInstagram,
   SiIntellijidea,
   SiJavascript,
@@ -31,7 +31,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import khosi from '../public/img/khosi.png';
 
-type UniversalIconType = IconType | React.ComponentType<React.SVGProps<SVGSVGElement>>;
+type UniversalIconType = React.ForwardRefExoticComponent<
+  Omit<React.SVGProps<SVGSVGElement>, 'ref'> & {
+    title?: string | undefined;
+    titleId?: string | undefined;
+  } & React.RefAttributes<SVGSVGElement>
+>;
 
 type TopSkillType = {
   icon: UniversalIconType;
@@ -80,8 +85,12 @@ const socialNetworks: SocialNetworkType[] = [
     url: 'https://github.com/mahdikhosravi',
   },
   {
+    icon: SiGoodreads,
+    url: 'https://goodreads.com/khosi',
+  },
+  {
     icon: SiGmail,
-    url: 'mailto: mahdi0khosravi@gmail.com',
+    url: 'mailto:mahdi0khosravi@gmail.com',
   },
 ];
 
@@ -203,7 +212,11 @@ const Home = () => (
     </div>
     <div className="flex flex-row md:hidden justify-center md:-mt-20  text-yellow-400">
       {socialNetworks.map((sn) => (
-        <Link href={sn.url} key={sn.url} className="hover:text-yellow-600 m-4" target="_blank">
+        <Link
+          href={sn.url}
+          key={sn.url}
+          className="hover:text-yellow-600 m-4"
+          target="_blank">
           <sn.icon className="h-8 w-8" />
         </Link>
       ))}
@@ -214,12 +227,21 @@ const Home = () => (
         <div className="relative max-w-full md:absolute md:w-1/3 w-96 m-auto md:max-w-md h-80 md:h-1/3 md:max-h-80 bg-white md:-top-40 md:right-20 rounded-lg">
           <div className="hidden md:flex flex-row justify-between md:-mt-20  text-yellow-400">
             {socialNetworks.map((sn) => (
-              <Link href={sn.url} key={sn.url} className="hover:text-yellow-600" target="_blank">
+              <Link
+                href={sn.url}
+                key={sn.url}
+                className="hover:text-yellow-600"
+                target="_blank">
                 <sn.icon className="h-10 w-10" />
               </Link>
             ))}
           </div>
-          <Image className="object-contain shadow-inner" src={khosi} fill alt="khosi" />
+          <Image
+            className="object-contain shadow-inner"
+            src={khosi}
+            fill
+            alt="khosi"
+          />
         </div>
 
         <div className="w-full grid md:grid-cols-2">
@@ -254,7 +276,9 @@ const Home = () => (
 
           <div className="w-full max-w-6xl m-auto grid grid-cols-3 text-center py-10">
             {topSkills.map((ts) => (
-              <div key={ts.title} className="space-y-4">
+              <div
+                key={ts.title}
+                className="space-y-4">
                 <div className="bg-zinc-900 rounded-full w-fit h-fit m-auto">
                   <ts.icon className="h-20 w-20 text-yellow-400 p-4" />
                 </div>
@@ -265,9 +289,14 @@ const Home = () => (
 
           <div className="w-full max-w-6xl m-auto space-y-10">
             {skills.map(({ array, classes }) => (
-              <div key={array.length} className={`flex justify-evenly ${classes}`}>
+              <div
+                key={array.length}
+                className={`flex justify-evenly ${classes}`}>
                 {array.map((Skill) => (
-                  <Skill key={Skill.displayName} className="h-full w-fit" />
+                  <Skill
+                    key={Skill.displayName}
+                    className="h-full w-fit"
+                  />
                 ))}
               </div>
             ))}
