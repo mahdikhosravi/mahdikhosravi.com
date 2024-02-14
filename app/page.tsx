@@ -130,10 +130,16 @@ const skills: SkillRow[] = [
 
 const experiences: ExperienceType[] = [
   {
+    position: 'VP of Technology',
+    name: 'DigiExpress',
+    start: new Date(2023, 8),
+    end: undefined,
+  },
+  {
     position: 'Chief Technology Officer',
     name: 'Snapp Store',
     start: new Date(2022, 3),
-    end: undefined,
+    end: new Date(2023, 8),
   },
   {
     position: 'Chief Technology Officer',
