@@ -27,7 +27,7 @@ import {
   SiReact,
   SiReacthookform,
   SiTailwindcss,
-  SiTwitter,
+  SiX,
   SiTypescript,
   SiVisualstudiocode,
   SiMastodon,
@@ -82,7 +82,7 @@ const socialNetworks: SocialNetworkType[] = [
     url: "https://www.instagram.com/khosikhosikhosi/",
   },
   {
-    icon: SiTwitter,
+    icon: SiX,
     url: "https://twitter.com/khosikhosikhosi",
   },
   {
