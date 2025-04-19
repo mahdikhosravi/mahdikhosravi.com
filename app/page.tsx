@@ -19,6 +19,7 @@ import {
   SiJavascript,
   SiLinkedin,
   SiLinux,
+  SiMastodon,
   SiNextdotjs,
   SiPostgresql,
   SiPrisma,
@@ -27,10 +28,9 @@ import {
   SiReact,
   SiReacthookform,
   SiTailwindcss,
-  SiX,
   SiTypescript,
   SiVisualstudiocode,
-  SiMastodon,
+  SiX,
 } from "@icons-pack/react-simple-icons";
 import Image from "next/image";
 import Link from "next/link";
@@ -153,10 +153,16 @@ const skills: SkillRow[] = [
 
 const experiences: ExperienceType[] = [
   {
+    position: "Engineering Manager",
+    name: "BitPin",
+    start: new Date(2024, 8),
+    end: undefined,
+  },
+  {
     position: "VP of Technology",
     name: "DigiExpress",
     start: new Date(2023, 8),
-    end: undefined,
+    end: new Date(2024, 8),
   },
   {
     position: "Chief Technology Officer",
